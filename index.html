@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Axios [Practical] </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>Fetch data with API</h1>
+        <h1>Employee list</h1>
+        <h1>Amazon Employeers</h1>
+
+        <div class="wrapTable">
+            <table class="table">
+                <tr class="tr">
+                    <td><strong>Name</strong></td>
+                    <td><strong>Salary</strong></td>
+                    <td><strong>Age</strong></td>
+                </tr>
+
+                <tr v-for='item in list' v-bind:key='item.id'>
+                    <td>{{item.employee_name}}</td>
+                    <td>{{item.employee_salary + '$' + ' per year'}}</td>
+                    <td>{{item.employee_age}}</td>
+                </tr>
+            </table>
+        </div>
+        <button>OK</button>
+    </div>
+
+    <script src='axios.js'></script>
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    list: [] // or null , undefined
+                }
+            },
+
+            // This is second way 
+            // The first way was in video that i saw ! 
+            mounted() {
+                axios.get('http://dummy.restapiexample.com/api/v1/employees')
+                    .then((response) => {
+                        this.list = response.data.data;
+                        console.warn(response.data.data);
+
+                    }).catch(error => {
+                        document.write('an unexpected error occured, while fetching data, Please try again later.');
+                    })
+            }
+        })
+    </script>
+</body>
+
+</html>

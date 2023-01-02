@@ -1,0 +1,39 @@
+body {
+    font-family: Calibri;
+}
+
+.table {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.table td {
+    padding: 30px;
+    border: 1px solid #ccc;
+}
+
+#app h1 {
+    text-align: center;
+}
+
+#app h1:nth-child(1) {
+    text-decoration: underline;
+    text-align-last: left;
+}
+
+#app h1:nth-child(2) {
+    font-style: italic;
+}
+
+#app h1:nth-child(3) {
+    color: #2c3a47;
+}
+
+.wrapTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Spinner load  */
